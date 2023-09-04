@@ -1,0 +1,98 @@
+@use 'config/reset';
+@use 'config/variaveis';
+
+body {
+    background-color: variaveis.$corDeFundo;
+}
+
+.container {
+    max-width: 1024px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+header {
+    background-color: variaveis.$corHeader;
+    position: sticky;
+    top: 0;
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 0;
+    }
+}
+
+.menu {
+    display: flex;
+
+    li {
+        font-weight: bold;
+        margin-left: 24px;
+
+        a {
+            color: variaveis.$menuColor;
+        }
+    }
+}
+
+section {
+    padding: 56px 0;
+
+    .products {
+        margin-top: 40px;
+        display: grid;
+        grid-template-columns: repeat(3, 32.66%);
+        width: 100%;
+        column-gap: 1%;
+        row-gap: 4%;
+    }
+}
+
+.product-item {
+    img {
+        width: 100%;
+        border-radius: 16px;
+    }
+}
+
+.product-button {
+    display: block;
+    text-align: center;
+    background-color: variaveis.$corButton;
+    color: variaveis.$menuColor;
+    padding: 8px 0;
+    border-radius: 8px;
+    margin-top: 8px;
+
+    &:hover {
+        background-color: lighten(variaveis.$corButton, 5%);
+    }
+}
+
+@media screen and (max-width: variaveis.$tablet) {
+    .container {
+        max-width: 85%;
+    }
+
+    section {
+        .products {
+            grid-template-columns: repeat(2, 48.5%);
+            column-gap: 3%;
+        }
+    }
+}
+
+@media screen and (max-width: variaveis.$mobile) {
+
+    section {
+        .products {
+            display: block;
+        }
+    }
+
+    .product-item {
+        margin-bottom: 32px;
+    }
+}
